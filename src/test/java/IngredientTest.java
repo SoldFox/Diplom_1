@@ -20,37 +20,37 @@ public class IngredientTest {
         this.price = price;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: {0} - {1}")
     public static Object[] setUpIngredients() {
-        return new Object[][] {
-                { IngredientType.SAUCE, "sour cream", 200},
-                { IngredientType.FILLING, "sausage", 300}
+        return new Object[][]{
+                {IngredientType.SAUCE, "sour cream", 200},
+                {IngredientType.FILLING, "sausage", 300}
         };
     }
 
     @Before
     public void setUp() {
-        ingredient = new Ingredient(type,name,price);
+        ingredient = new Ingredient(type, name, price);
     }
 
     @Test
     public void getPriceReturnCorrectValue() {
         float actual = ingredient.getPrice();
         float expected = price;
-        Assert.assertEquals("Method return wrong value",expected,actual,0);
+        Assert.assertEquals("Method return wrong value", expected, actual, 0);
     }
 
     @Test
     public void getNameReturnCorrectValue() {
         String actual = ingredient.getName();
         String expected = name;
-        Assert.assertEquals("Method return wrong value",expected,actual);
+        Assert.assertEquals("Method return wrong value", expected, actual);
     }
 
     @Test
     public void getTypeReturnCorrectValue() {
         IngredientType actual = ingredient.getType();
         IngredientType expected = type;
-        Assert.assertEquals("Method return wrong value",expected,actual);
+        Assert.assertEquals("Method return wrong value", expected, actual);
     }
 }
